@@ -4,8 +4,8 @@
   "description": "Personal Developer Portfolio for Raegan Grace Scheet",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#02060f",
-  "theme_color": "#02060f",
+  "background_color": "#020611",
+  "theme_color": "#020611",
   "icons": [
     {
       "src": "/icons/raegan/rae-icon-192.png",
