@@ -1,0 +1,29 @@
+{
+  "myself": {
+    "name": "Raegan Scheet",
+    "image": "/icons/raegan/rae-icon-512.png",
+    "bio": [
+      "Hello, I'm Rae (she/her)! This is my personal portfolio and blog where I share things I find cool and talk about my previous projects. I'm a Junior at the University of Nebraska-Lincoln studying Software Engineering.",
+      "Some of my greatest technical passions include controls engineering for robotics, low-level programming, cyber security, noise generation, game design, and teaching. Outside of tech, I enjoy tabletop role-playing games, painting, and crochet.",
+      "Last summer I interned at NASA Langley working on embedded and controls engineering for their Lunar Surface Manipulation System (LSMS) — essentially a really cool space crane designed for a variety of use cases like welding, building scaffolding, and lifting heavy payloads while minimizing swing. It's an essential part of humanity establishing a base at the lunar north pole and future Martian bases. My time at NASA was one of the coolest experiences of my life.",
+      "This summer I'm continuing my controls engineering journey with Kiewit, contributing to nuclear energy initiatives. If you're interested in reaching out, feel free to contact me via Email or LinkedIn for questions or employment inquiries!"
+    ],
+    "socials": [
+      {
+        "type": "GitHub",
+        "href": "https://github.com/raedotzip",
+        "image": "/icons/socials/github.png"
+      },
+      {
+        "type": "Instagram",
+        "href": "https://www.instagram.com/raedotzip",
+        "image": "/icons/socials/instagram.png"
+      },
+      {
+        "type": "LinkedIn",
+        "href": "https://www.linkedin.com/in/raegan-scheet",
+        "image": "/icons/socials/linkedin.png"
+      }
+    ]
+  }
+}

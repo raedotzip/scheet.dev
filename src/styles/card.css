@@ -1,0 +1,167 @@
+/* Base glass card */
+.card {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  margin-top: 3rem;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Large profile/about card */
+.card--profile {
+  display: grid;
+  grid-template-columns: 1fr 175px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "text  photo"
+    "socials photo";
+  gap: 1rem 1.5rem;
+  align-items: start;
+}
+
+.card--profile .profile-text {
+  grid-area: text;
+  align-self: start;
+}
+
+.card--profile #rae-card-profile-img {
+  grid-area: photo;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  height: 175px;
+  max-width: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card--profile .social-grid {
+  grid-area: socials;
+  align-self: end;
+}
+
+/* Stacked layout before photo gets too small */
+@media (max-width: 860px) {
+  .card--profile {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "text"
+      "photo"
+      "socials";
+    gap: 1.5rem;
+  }
+
+  .card--profile #rae-card-profile-img {
+    width: clamp(120px, 35vw, 220px);
+    height: clamp(120px, 35vw, 220px);
+    max-width: 100%;
+    justify-self: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .card--profile #rae-card-profile-img {
+    width: clamp(120px, 45vw, 220px);
+    height: clamp(120px, 45vw, 220px);
+  }
+
+  .card--profile .social-grid {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+/* Touch devices */
+@media (pointer: coarse) {
+  .card--profile .social-grid {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+/* Bio paragraphs */
+.profile-bio p {
+  margin: 0 0 0.75rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.profile-bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* Social icons */
+.social-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.social:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.social img {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+/* Grid of smaller cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Link card */
+.card--link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.card--link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.card--link img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.card-label {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

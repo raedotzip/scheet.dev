@@ -123,7 +123,7 @@ void main(){
         wander += palette(float(i)*0.1+t_bg)*pow(smoothstep(0.08,0.0,dist),7.0)*1.7;
     }
 
-    // --- Fluid flow: skip fbm warp on mobile, use cheaper version ---
+    // --- Fluid flow: skip fbm warp on mobile ---
     float ripple = time * 0.5 - d * 2.5;
     vec3 flow = vec3(0.0);
     if(quality > 0.5){

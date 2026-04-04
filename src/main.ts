@@ -1,8 +1,11 @@
 import "./styles/global.css";
+import "./styles/nav.css";
+import "./styles/card.css";
 import { initBackground } from "./webgl/background.ts";
-import { renderRoute } from "./router";
+import { renderNav, renderRoute } from "./router";
 
 initBackground();
+renderNav();
 
 function router() {
   renderRoute(window.location.pathname);

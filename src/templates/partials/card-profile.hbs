@@ -1,0 +1,16 @@
+<div class="card card--profile">
+  <div class="profile-text">
+    <h2>{{name}}</h2>
+    <div class="profile-bio">
+      {{#each bio}}
+        <p>{{this}}</p>
+      {{/each}}
+    </div>
+  </div>
+  <img src="{{image}}" alt="{{name}}" id="rae-card-profile-img"/>
+  <div class="social-grid">
+    {{#each socials}}
+      {{> social this}}
+    {{/each}}
+  </div>
+</div>
