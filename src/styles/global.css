@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  background: #000;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -9,9 +13,12 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background: radial-gradient(circle at center, #020617, #000);
   color: white;
   font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #020617, #000);
 }
 
 #bg-canvas {
@@ -28,6 +35,8 @@ html, body {
   position: relative;
   z-index: 1;
   padding: 2rem;
+  padding-top: calc(2rem + env(safe-area-inset-top));
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
 }
 
 #page {
@@ -45,6 +54,8 @@ html, body {
 @media (max-width: 860px) {
   #app {
     padding: 1.5rem 1rem;
+    padding-top: calc(1.5rem + env(safe-area-inset-top));
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
   }
 
   .container {
@@ -55,6 +66,8 @@ html, body {
 @media (max-width: 480px) {
   #app {
     padding: 1rem 0.75rem;
+    padding-top: calc(1rem + env(safe-area-inset-top));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 
   .container {
