@@ -1,8 +1,7 @@
 import Handlebars from "handlebars";
 
-import homeData from "./data/home.json";
-import aboutData from "./data/about.json";
-import siteData from "./data/site.json";
+import siteData   from "./data/site.json";
+import homeData   from "./data/pages/home.json";
 
 const partialModules = import.meta.glob("./views/partials/**/*.hbs", {
   eager: true,
@@ -28,8 +27,7 @@ for (const path in templateModules) {
 }
 
 const routes: Record<string, { key: string; data: unknown }> = {
-  "/":      { key: "home",  data: homeData },
-  "/about": { key: "about", data: aboutData },
+  "/":       { key: "home",   data: homeData   },
 };
 
 export function renderNav() {
@@ -40,6 +38,7 @@ export function renderNav() {
 }
 
 export function renderRoute(path: string) {
+  if (path === "/resume") { window.location.href = "/RaeganScheetResume.pdf"; return; }
   const route = routes[path] ?? routes["/"];
   const template = templates[route.key] ?? templates["home"];
   document.getElementById("app")!.innerHTML = template(route.data);
