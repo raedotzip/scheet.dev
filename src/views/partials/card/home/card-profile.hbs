@@ -10,7 +10,9 @@
   <img src="{{image}}" alt="{{name}}" id="rae-card-profile-img"/>
   <div class="social-grid">
     {{#each socials}}
-      {{> social this}}
+      <a class="social" href="{{href}}">
+        <img src="{{image}}" alt="{{type}}"/>
+      </a>
     {{/each}}
   </div>
 </div>

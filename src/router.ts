@@ -1,20 +1,30 @@
 import Handlebars from "handlebars";
-import "./templates/partials/index";
 
 import homeData from "./data/home.json";
 import aboutData from "./data/about.json";
 import siteData from "./data/site.json";
 
-const modules = import.meta.glob("./templates/pages/*.hbs", {
+const partialModules = import.meta.glob("./views/partials/**/*.hbs", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+});
+
+for (const path in partialModules) {
+  const name = path.replace("./views/partials/", "").replace(".hbs", "");
+  Handlebars.registerPartial(name, partialModules[path] as string);
+}
+
+const templateModules = import.meta.glob("./views/templates/*.hbs", {
   eager: true,
   query: "?raw",
   import: "default",
 });
 
 const templates: Record<string, Handlebars.TemplateDelegate> = {};
-for (const path in modules) {
-  const name = path.replace("./templates/pages/", "").replace(".hbs", "");
-  templates[name] = Handlebars.compile(modules[path] as string);
+for (const path in templateModules) {
+  const name = path.replace("./views/templates/", "").replace(".hbs", "");
+  templates[name] = Handlebars.compile(templateModules[path] as string);
 }
 
 const routes: Record<string, { key: string; data: unknown }> = {
@@ -23,8 +33,8 @@ const routes: Record<string, { key: string; data: unknown }> = {
 };
 
 export function renderNav() {
-  const navTemplate = Handlebars.compile(Handlebars.partials["nav"] as string);
-  const mobileTemplate = Handlebars.compile(Handlebars.partials["mobile-nav"] as string);
+  const navTemplate = Handlebars.compile(Handlebars.partials["nav/nav"] as string);
+  const mobileTemplate = Handlebars.compile(Handlebars.partials["nav/mobile-nav"] as string);
   document.getElementById("nav")!.innerHTML = navTemplate(siteData);
   document.getElementById("mobile-nav")!.innerHTML = mobileTemplate(siteData);
 }
